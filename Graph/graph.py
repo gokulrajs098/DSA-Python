@@ -45,21 +45,52 @@ class Graph:
             if vertex2 in self.graph[vertex1]:
                 self.graph[vertex1].remove(vertex2)
 
+    def depth_first_traversal(self, start, alreadyVisited = set()):
+        if start not in alreadyVisited:
+            alreadyVisited.add(start)
+            print(start, end=" ")
+            for child in self.graph[start]:
+                self.depth_first_traversal(child, alreadyVisited)
+
+    def breath_first_traversal(self, start):
+        alreadyVisited = {start}
+        queue = [start]
+
+        while len(queue)>0:
+            current = queue.pop(0)
+            print(current, end=" ") 
+
+            for child in self.graph[current]:
+                if child not in alreadyVisited:
+                    queue.append(child)
+                    alreadyVisited.add(child)
+    
+    def shortest_path(self, start, end):
+        alreadyVisited = {start}
+        queue = [(start, [start])]
+        while len(queue)>0:
+            current, path = queue.pop(0)
+            for child in self.graph[current]:
+                if child == end:
+                    return path+[child]
+                if child not in alreadyVisited:
+                    queue.append((child, child+[path]))
+                    alreadyVisited.add(child)
+        return None
+            
 graph = Graph()
 
 graph.addEdges("a", "b")
-graph.addEdges("b", "a")
-graph.addEdges("a", "d")
 graph.addEdges("b", "c")
-graph.addEdges("c", "a")
-graph.addEdges("d", "a")
+graph.addEdges("c", "d")
+graph.addEdges("b", "d")
+
+graph.depth_first_traversal("a")
+graph.breath_first_traversal("a")
+# graph.display()
 
 
 
-graph.removeVertex("c")
-graph.removeEdges("a", "b")
-graph.display()
-
-graph.getVertices()
-
-graph.getEdges()
+    
+            
+    
