@@ -65,20 +65,36 @@ class Tree:
         for child in node.children:
             self.display(depth+1, child)
 
+    def dfs(self, node):
+
+        print(node.data)
+
+        for child in node.children:
+            self.dfs(child)
+
+    def bfs(self, node):
+        queue = [node]
+        while len(queue) > 0:
+            visit = queue.pop(0)
+            print(visit.data)
+            for child in visit.children:
+                queue.append(child)
+
+
 
 tree = Tree()
 
-tree.addNode(1)
-tree.addNode(2, 1)
-tree.addNode(3, 1)
-tree.addNode(4, 2)
-tree.addNode(5, 2)
-tree.addNode(6, 3)
-tree.addNode(7, 3)
+tree.addNode(1)          
+tree.addNode(2, 1)       
+tree.addNode(3, 1)      
+tree.addNode(4, 2)      
+tree.addNode(5, 2)       
+tree.addNode(6, 3)     
+tree.addNode(7, 3)       
+tree.addNode(8, 4)     
+tree.addNode(9, 4)
+# tree.display()
 
-tree.display()
+# tree.dfs(tree.root)
 
-
-tree.remove(3)
-
-tree.display()
+tree.bfs(tree.root)

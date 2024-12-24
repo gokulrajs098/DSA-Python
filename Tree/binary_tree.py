@@ -66,6 +66,11 @@ class BinaryTree:
         if not node or node.data == data:
             return node
         return self.recursiveSearch(node.left, data) or self.recursiveSearch(node.right, data)
+    
+    
+
+
+        
 
 tree = BinaryTree()
 
@@ -75,11 +80,6 @@ tree.add(3)
 tree.add(4)
 tree.add(5)
 
-tree.display()
 
 
-tree.remove(3)
-
-tree.display()
-
-tree.search(10)
+tree.dfs()
