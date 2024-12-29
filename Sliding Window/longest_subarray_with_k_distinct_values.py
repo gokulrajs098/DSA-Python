@@ -14,8 +14,10 @@ def solution(k, arr):
             start += 1
 
         if len(freq) == k:
-            max_sub = max(max_sub, end-start+1)
-    return max_sub
+            if end-start+1 > max_sub:
+                max_sub = end-start+1
+                max_arr = arr[start:end+1]
+    return max_sub, max_arr
 
 k = 2
 s = "adjbfeeebbb"

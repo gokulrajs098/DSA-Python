@@ -40,8 +40,6 @@ class HashMap:
                     return
         return "key not found"
 
-            
-
 dict = HashMap(10)
 dict.add("name", "gokul")
 dict.add("age", 21)
