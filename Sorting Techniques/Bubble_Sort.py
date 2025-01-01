@@ -15,4 +15,3 @@ def bubble_sort(arr):
 arr = [9,8,7,6,5,4,3,2,1]
 result = bubble_sort(arr)
 print(result)
-        
