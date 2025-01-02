@@ -22,6 +22,3 @@ n = 7
 
 result = sliding_window(arr, n)
 print(result)
-
-
-
