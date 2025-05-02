@@ -3,9 +3,9 @@ def solution(k, arr):
     freq = {}
     start = 0
     max_sub = 0
+
     for end in range(len(arr)):
         freq[arr[end]] = freq.get(arr[end], 0)+1
-
 
         while len(freq) > k:
             freq[arr[start]] -= 1
